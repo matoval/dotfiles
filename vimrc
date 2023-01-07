@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-commentary'
+    Plug 'itchyny/vim-gitbranch'
 call plug#end()
 
 colorscheme gruvbox "sets colorscheme on bootup
@@ -31,7 +32,7 @@ let g:lightline = {
       \             [ 'githunks', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-        \   'gitbranch': 'FugitiveHead',
+        \   'gitbranch': 'gitbranch#name',
         \   'githunks': 'GitStatus' 
       \ },
       \ }
