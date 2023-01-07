@@ -15,6 +15,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
     " File viewer
     Plug 'preservim/nerdtree'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-commentary'
 call plug#end()
 
 colorscheme gruvbox "sets colorscheme on bootup
@@ -26,10 +28,11 @@ let g:lightline = {
         \ 'colorscheme': 'gruvbox',
       \ 'active': {
         \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'githunks', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-        \   'gitbranch': 'FugitiveHead'
+        \   'gitbranch': 'FugitiveHead',
+        \   'githunks': 'GitStatus' 
       \ },
       \ }
 
@@ -61,3 +64,12 @@ noremap! <Right> <Esc>
 
 " Remap for FZF
 nnoremap <C-f> :Files<CR>
+
+" Auto enable GitGutter
+let g:gitgutter_enabled = 1
+
+" Add git staus to status line
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
