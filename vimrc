@@ -54,14 +54,14 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " remove arrow keys - all modes
-noremap  <Up> ""
-noremap! <Up> <Esc>
-noremap  <Down> ""
-noremap! <Down> <Esc>
-noremap  <Left> ""
-noremap! <Left> <Esc>
-noremap  <Right> ""
-noremap! <Right> <Esc>
+" noremap  <Up> ""
+" noremap! <Up> <Esc>
+" noremap  <Down> ""
+" noremap! <Down> <Esc>
+" noremap  <Left> ""
+" noremap! <Left> <Esc>
+" noremap  <Right> ""
+" noremap! <Right> <Esc>
 
 " Remap for FZF
 nnoremap <C-f> :Files<CR>
